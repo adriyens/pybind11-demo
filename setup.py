@@ -11,17 +11,23 @@ from distutils import sysconfig
 
 cpp_args = ['-std=c++11', '-stdlib=libc++', '-mmacosx-version-min=10.7']
 
-sfc_module = Extension(
+demo_module = Extension(
     'demo',
-    sources = ['demo.cpp', 'wrapper.cpp'],
+    # Only need to include class implementations in sources (no need for header file)
+    sources=['src/demo.cpp', 'src/wrapper.cpp'],
     include_dirs=['pybind11/include', 'include'],
     language='c++',
     extra_compile_args = cpp_args,
     )
 
 setup(
-    name = 'demo',
-    version = '1.0',
-    description = 'An example project using pybind11.',
-    ext_modules = [sfc_module],
+    name='demo',
+    version='1.0',
+    url='https://github.com/adriyens/pybind11-demo',
+    author='Adrianne Santinor',
+    author_email='adrianne.santinor@gmail.com',
+    description='An example module using pybind11.',
+    ext_modules = [demo_module],
+    install_requires=['pybind11>=2.4'],
+    setup_requires=['pybind11>=2.4'],
 )

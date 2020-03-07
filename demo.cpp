@@ -4,7 +4,6 @@
 */
 
 #include "demo.h"
-#include <iostream>
 
 
 /* Basic function implementation. */
@@ -83,4 +82,3 @@ void Car::dumpCar()
       cout << i + 1 << ": " << pets.at(i)->getName() << endl;
    }
 }
-
